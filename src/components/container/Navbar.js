@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -18,18 +19,18 @@ const Navbar = () => {
                         activeClassName="active"
                         className="nav-item nav-link"
                         exact
-                        to="/marvel"
+                        to="/usuarios"
                     >
-                        Marvel
+                        Usuarios
                     </NavLink>
 
                     <NavLink
                         activeClassName="active"
                         className="nav-item nav-link"
                         exact
-                        to="/dc"
+                        to="/proyectos"
                     >
-                        DC
+                        Proyectos
                     </NavLink>
                 </div>
             </div>
