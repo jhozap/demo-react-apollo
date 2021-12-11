@@ -3,6 +3,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import GET_USUARIOS from '../../../Apollo/gql/getUsuarios';
 
+import '../../components.css';
+
 const ListarUsuarios = () => {
 
     const { loading, data, error } = useQuery(GET_USUARIOS);
@@ -34,7 +36,7 @@ const ListarUsuarios = () => {
                                     <td>{usuario.nombre} {usuario.apellido}</td>
                                     <td>{usuario.email}</td>
                                     <td>
-                                        <NavLink className="btn btn-primary mr-3" to={`/productos/${usuario._id}`}>
+                                        <NavLink className="btn btn-primary mr" to={`/usuarios/${usuario.id}`}>
                                             Editar
                                         </NavLink>
                                         <button type="button" className="btn btn btn-danger mr-3" data="data de pruebas" onClick={() => handleDelete(usuario.id)}>Eliminar</button>

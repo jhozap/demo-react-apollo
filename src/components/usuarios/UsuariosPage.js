@@ -8,7 +8,9 @@ import ListarUsuarios from './listar/ListarUsuarios';
 const UsuariosPage = () => {
 
     const { action } = useParams();
-    
+
+    console.log(action);
+
     return (
         <section className="content mt-5">
             <div className="container-fluid">
@@ -18,7 +20,8 @@ const UsuariosPage = () => {
                             <div className="card-header flex">
                                 <h5 className="m-0">Usuarios</h5>
                                 {
-                                    action === 'crear' ?
+                                    action !== undefined ?
+
                                         <NavLink className="btn btn-danger mr-3" to={`/usuarios`}>
                                             Cancelar
                                         </NavLink>
@@ -26,10 +29,11 @@ const UsuariosPage = () => {
                                         <NavLink className="btn btn-primary mr-3" to={`/usuarios/crear`}>
                                             Crear Producto
                                         </NavLink>
+
                                 }
                             </div>
                             <div className="card-body">
-                            { action === '' || action === undefined ? <ListarUsuarios /> : (action === 'crear') ? <CrearUsuario /> : <EditarUsuario />}
+                                {action === '' || action === undefined ? <ListarUsuarios /> : (action === 'crear') ? <CrearUsuario /> : <EditarUsuario />}
                             </div>
                         </div>
                     </div>

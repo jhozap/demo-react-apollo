@@ -2,12 +2,13 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 
-const LoginPage = () => {
+const LoginPage = () => {    
 
     const navigate = useNavigate();
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
 
+        e.preventDefault();
         // agregar una nueva ruta al stack de navegacion
         // navigate('/usuarios')
 
