@@ -11,6 +11,7 @@ const ContentRoutes = () => {
             <div className="container-fluid">
                 <div className="row">
                     <Routes>
+                        <Route path="usuarios/:action" element={<UsuariosPage />} />
                         <Route path="usuarios" element={<UsuariosPage />} />
                         <Route path="proyectos" element={<ProyectosPage />} />
 

@@ -1,10 +1,14 @@
 import React from 'react'
+import { NavLink, useParams } from 'react-router-dom';
 import '../components.css';
+import CrearUsuario from './crear/CrearUsuario';
+import EditarUsuario from './editar/EditarUsuario';
+import ListarUsuarios from './listar/ListarUsuarios';
 
 const UsuariosPage = () => {
 
+    const { action } = useParams();
     
-
     return (
         <section className="content mt-5">
             <div className="container-fluid">
@@ -13,14 +17,19 @@ const UsuariosPage = () => {
                         <div className="card card-primary card-outline">
                             <div className="card-header flex">
                                 <h5 className="m-0">Usuarios</h5>
-                                <button
-                                    className="btn btn-primary mr-3"
-                                >
-                                    Crear Usuario
-                                </button>
+                                {
+                                    action === 'crear' ?
+                                        <NavLink className="btn btn-danger mr-3" to={`/usuarios`}>
+                                            Cancelar
+                                        </NavLink>
+                                        :
+                                        <NavLink className="btn btn-primary mr-3" to={`/usuarios/crear`}>
+                                            Crear Producto
+                                        </NavLink>
+                                }
                             </div>
                             <div className="card-body">
-                                {/* <Table /> */}
+                            { action === '' || action === undefined ? <ListarUsuarios /> : (action === 'crear') ? <CrearUsuario /> : <EditarUsuario />}
                             </div>
                         </div>
                     </div>
