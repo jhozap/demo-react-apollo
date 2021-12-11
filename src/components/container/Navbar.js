@@ -1,11 +1,16 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
 
+    const navigate = useNavigate();
 
     const handleLogout = () => {
-        console.log('logout')
+
+        navigate('/login', {
+            replace: true
+        })
+        
     }
 
     return (
@@ -15,7 +20,7 @@ const Navbar = () => {
                 className="navbar-brand"
                 to="/"
             >
-                Asociaciones
+                Gestor de Proyectos
             </Link>
 
             <div className="navbar-collapse">
